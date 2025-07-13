@@ -12,6 +12,14 @@
     --gold-hover: 0 15px 40px rgba(212, 168, 122, 0.3);
 }
 
+@font-face {
+    font-family: 'Royal Augustine';
+    src: url('assets/fonts/Royal Augustine.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,8 +27,9 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Royal Augustine', 'Poppins', Arial, sans-serif;
     line-height: 1.6;
+    letter-spacing: 0.05em;
     color: var(--text-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -503,6 +512,9 @@ h2::after {
     text-align: justify;
     margin: 1.5rem 0;
     line-height: 1.7;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .facility-stats .stat p {

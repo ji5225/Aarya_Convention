@@ -71,7 +71,7 @@
 .service-popup-title {
     color: #D4A87A;
     margin-bottom: 20px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Royal Augustine', 'Poppins', Arial, sans-serif;
     font-weight: 700;
     font-size: 2.2em;
 }
@@ -150,6 +150,7 @@
     }
     
     .service-popup-title {
+        font-family: 'Royal Augustine', 'Poppins', Arial, sans-serif;
         font-size: 1.8em;
     }
     
@@ -168,6 +169,7 @@
     }
     
     .service-popup-title {
+        font-family: 'Royal Augustine', 'Poppins', Arial, sans-serif;
         font-size: 1.5em;
     }
     
