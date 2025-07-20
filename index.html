@@ -619,20 +619,6 @@
             // Ensure controls are clickable
             document.querySelector('.video-controls').style.pointerEvents = 'auto';
 
-            // Handle keyboard controls
-            document.addEventListener('keydown', (e) => {
-                // Space or K key to play/pause
-                if ((e.code === 'Space' || e.code === 'KeyK') && document.activeElement !== document.body) {
-                    e.preventDefault();
-                    togglePlayPause();
-                }
-                // F key for fullscreen
-                if (e.code === 'KeyF') {
-                    e.preventDefault();
-                    toggleFullscreen();
-                }
-            });
-
             // Initialize button states
             updateButtonStates();
         });
