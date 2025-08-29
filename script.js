@@ -110,6 +110,18 @@ galleryItems.forEach(item => {
     });
 });
 
+// Facility button scroll-to-booking functionality
+const facilityBtns = document.querySelectorAll('.facility-btn');
+facilityBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const bookingSection = document.getElementById('contact');
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
 // Gallery slider functionality has been removed as it's not being used
 
 // Function to handle stat card animations

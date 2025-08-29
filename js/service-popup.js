@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const popupGallery = document.querySelector('.service-popup-gallery');
 
     // Service data (you can expand this with more services and details)
-    const serviceData = {
-        'luxury-accommodation': {
+    let serviceData = {
+        'luxury_accommodation': {
             title: 'LUXURY ACCOMMODATION',
             description: 'Welcome your guests to the pinnacle of comfort and luxury. With 40 well-appointed rooms, including exquisite bridal and groom suites, Aarya Convention offers an unmatched stay experience. Each room is thoughtfully designed to provide privacy, relaxation, and a touch of opulence.',
             features: [
@@ -17,12 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Exclusive bridal and groom suites for a special touch',
                 'Personalized hospitality services to make every stay memorable'
             ],
-            images: [
-                'assets/photos/luxury_accomodation/3d-rendering-interior-and-exterior-design-e1604307589570.jpg.webp',
-                'assets/photos/luxury_accomodation/3d-rendering-luxury-and-modern-living-room-with-good-design-leather-sofa-1.jpg.webp',
-                'assets/photos/luxury_accomodation/3d-rendering-modern-luxury-bedroom-suite-bathroom.jpg.webp',
-                'assets/photos/luxury_accomodation/luxury-bedroom-interior-with-rich-furniture-scenic-view-from-walkout-deck.jpg.webp'
-            ]
+            images: []
         },
         'catering': {
             title: 'IN-HOUSE CATERING & DECOR',
@@ -32,12 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Stunning decor tailored to match your theme and style',
                 'Experienced professionals ensuring perfection at every step'
             ],
-            images: [
-                'assets/photos/in-house_catering_n_Decor/ceremony-arch-wedding-arch-wedding-wedding-moment-decorations-decor-wedding-decorations-1.jpg.webp',
-                'assets/photos/in-house_catering_n_Decor/ceremony-arch-wedding-arch-wedding-wedding-moment-decorations-decor-wedding-decorations.jpg.webp',
-                'assets/photos/in-house_catering_n_Decor/javanese-wedding-dress-wedding-ceremony-wedding-arch-wedding-moment-wedding-food-1.jpg.webp',
-                'assets/photos/in-house_catering_n_Decor/javanese-wedding-dress-wedding-ceremony-wedding-arch-wedding-moment-wedding-food.jpg.webp'
-            ]
+            images: []
         },
         'corporate': {
             title: 'CORPORATE-FRIENDLY SPACES',
@@ -47,12 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Flexible layouts to accommodate events of any scale',
                 'Professional ambiance designed to inspire productivity and collaboration'
             ],
-            images: [
-                'assets/photos/corporate_space/3d-rendering-business-meeting-room-on-high-rise-office-building-e1604307631677.jpg.webp',
-                'assets/photos/corporate_space/7.jpg.webp',
-                'assets/photos/corporate_space/coffee-restaurant-indoor-with-luxury-wooden-furniture.jpg.webp',
-                'assets/photos/corporate_space/corporate-conferences-room-editorial.jpg.webp'
-            ]
+            images: []
         },
         'parking': {
             title: 'EXPANSIVE PARKING SPACE',
@@ -62,13 +47,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Secure, well-organized, and easy to navigate',
                 'Designed for seamless traffic flow, saving your guests time and effort'
             ],
-            images: [
-                'assets/photos/parking_space/1.jpg.webp',
-                'assets/photos/parking_space/3.jpg.webp',
-                'assets/photos/parking_space/4.jpg.webp'
-            ]
+            images: []
         }
     };
+
+    // Fetch gallery-images.json and update serviceData
+    fetch('gallery-images.json')
+        .then(res => res.json())
+        .then(galleryImages => {
+            // Map galleryImages keys to serviceData keys
+            const mapping = {
+                'luxury_accomodation': { serviceKey: 'luxury_accommodation', folder: 'luxury_accomodation' },
+                'in_house_catering_n_Decor': { serviceKey: 'catering', folder: 'in_house_catering_n_Decor' },
+                'corporate_space': { serviceKey: 'corporate', folder: 'corporate_space' },
+                'parking_space': { serviceKey: 'parking', folder: 'parking_space' }
+            };
+            Object.entries(mapping).forEach(([galleryKey, {serviceKey, folder}]) => {
+                if (serviceData[serviceKey] && galleryImages[galleryKey]) {
+                    serviceData[serviceKey].images = galleryImages[galleryKey].map(filename => `assets/photos/${folder}/${filename}`);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching gallery images:', error));
 
     // Function to open the popup
     function openPopup(serviceId) {
