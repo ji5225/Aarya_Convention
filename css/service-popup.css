@@ -1,3 +1,13 @@
+:root {
+    --dark-green: #001e02;
+    --secondary-color: #e8b445;
+    --secondary-hover: #d4a53e;
+    --text-dark: #111;
+    --border-light: #e4e4e4;
+    --bg-dark: #1a1a1a;
+    --text-light: #e0e0e0;
+}
+
 /* Service More Info Button */
 .service-more-info-btn {
     display: inline-block;
@@ -6,7 +16,7 @@
     background: linear-gradient(135deg, #fff 85%, #e9ecef 100%);
     color: #111;
     border: 1.5px solid #e4e4e4;
-    border-radius: 6px;
+    border-radius: 18px;
     font-family: 'Adam', Arial, sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -17,11 +27,11 @@
 }
 
 .service-more-info-btn:hover {
-    background: #D4A87A;
-    color: #111;
+    background: var(--dark-green);
+    color: var(--secondary-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: #D4A87A;
+    border-color: var(--secondary-color);
 }
 
 /* Service Popup Modal */
@@ -42,7 +52,7 @@
 
 .service-popup-content {
     position: relative;
-    background-color: #1a1a1a;
+    background-color: var(--bg-dark);
     color: #fff;
     max-width: 900px;
     width: 100%;
@@ -52,7 +62,7 @@
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
     padding: 40px;
     box-sizing: border-box;
-    border: 1px solid #D4A87A;
+    border: 1px solid var(--secondary-color);
 }
 
 .service-popup-close {
@@ -68,11 +78,11 @@
 }
 
 .service-popup-close:hover {
-    color: #D4A87A;
+    color: var(--secondary-color);
 }
 
 .service-popup-title {
-    color: #D4A87A;
+    color: var(--secondary-color);
     margin-bottom: 20px;
     font-family: 'Adam', Arial, sans-serif;
     font-weight: 700;
@@ -82,7 +92,7 @@
 .service-popup-description {
     margin-bottom: 30px;
     line-height: 1.6;
-    color: #e0e0e0;
+    color: var(--text-light);
     font-size: 1.1em;
     font-family: 'Adam', Arial, sans-serif;
     font-weight: 500;
@@ -111,7 +121,7 @@
     content: '✓';
     position: absolute;
     left: 0;
-    color: #D4A87A;
+    color: var(--secondary-color);
     font-weight: bold;
     font-size: 1.1em;
 }

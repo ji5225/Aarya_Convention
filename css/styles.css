@@ -1,13 +1,14 @@
 :root {
     --primary-color: #1a1a1a;
-    --secondary-color: #D4A87A;
-    --accent-color: #D4A87A;
+    --dark-green: #001e02;
+    --secondary-color: #e8b445;
+    --accent-color: #e8b445;
     --text-color: #333;
     --light-bg: #f8f9fa;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --highlight-color: #D4A87A;
-    --gradient-primary: linear-gradient(135deg, #D4A87A, #BC9565);
-    --gradient-secondary: linear-gradient(135deg, #D4A87A, #BC9565);
+    --highlight-color: #e8b445;
+    --gradient-primary: linear-gradient(135deg, #f8c452, #e8b445);
+    --gradient-secondary: linear-gradient(135deg, #f8c452, #e8b445);
     --gold-shadow: 0 10px 30px rgba(212, 168, 122, 0.2);
     --gold-hover: 0 15px 40px rgba(212, 168, 122, 0.3);
 }
@@ -91,7 +92,7 @@ body {
 .navbar {
     position: fixed;
     width: 100%;
-    background: rgba(0,0,0,0.82);
+    background: var(--dark-green);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
@@ -174,9 +175,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /*background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));*/
-    background: linear-gradient(180deg, rgb(1 17 52), rgba(0, 0, 0, 0.3));
-
+    background: linear-gradient(180deg, rgb(0 0 0) 0%, rgb(1 22 3 / 52%) 50%, rgb(0 30 2 / 78%) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .hero-content {
@@ -192,12 +192,12 @@ body {
     font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: -1.2rem;
-    color: #D4A87A; /* Solid golden color */
+    color: var(--secondary-color); /* Using theme color */
     animation: slideIn 1s ease;
 }
 
 .hero h1 .highlight {
-    color: #D4A87A; /* Same golden color for the dot */
+    color: var(--secondary-color); /* Using theme color */
 }
 
 .hero h2 {
@@ -255,7 +255,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #D4A87A, #BC9565);
+    background: linear-gradient(135deg, var(--secondary-color), #BC9565);
     opacity: 0.2;
     z-index: -1;
 }
@@ -298,7 +298,11 @@ body {
 .stat-card i {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--secondary-color);
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .stat-card h3 {
@@ -353,10 +357,10 @@ body {
 }
 
 .cta-container .cta-button:hover {
-    background: #D4A87A;
-    color: #111;
+    background: var(--dark-green);
+    color: var(--secondary-color);
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    border-color: #D4A87A;
+    border-color: var(--secondary-color);
 }
 
 .cta-button:hover {
@@ -416,7 +420,7 @@ h2::after {
     transform: translateX(-50%);
     width: 100px;
     height: 3px;
-    background: var(--gradient-primary);
+    background: var(--secondary-color);
 }
 
 .section-header .subtitle {
@@ -443,7 +447,7 @@ h2::after {
     width: 80px;
     height: 80px;
     margin: 0 auto 2rem;
-    background: var(--gradient-primary);
+    background: var(--dark-green);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -452,7 +456,11 @@ h2::after {
 
 .feature-icon i {
     font-size: 2rem;
-    color: white;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .feature-card h3 {
@@ -586,7 +594,7 @@ h2::after {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(30, 30, 30, 0.18);
+    background: rgba(166, 2, 2, 0.18);
     pointer-events: none;
     border-radius: 15px 15px 0 0;
     transition: background 0.4s cubic-bezier(0.4,0,0.2,1);
@@ -663,8 +671,8 @@ h2::after {
 .facility-btn {
     display: inline-block;
     padding: 0.5rem 2rem;
-    background: var(--gradient-primary);
-    color: white;
+    background: var(--dark-green);
+    color: var(--secondary-hover);
     text-decoration: none;
     border-radius: 25px;
     transition: var(--transition);
@@ -673,7 +681,8 @@ h2::after {
 .facility-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    color: black;
+    color: var(--light-bg);
+    border-color: var(--secondary-hover); 
 }
 
 .facility-card {
@@ -900,7 +909,7 @@ h2::after {
     width: 100px;
     height: 100px;
     margin: 0 auto 2rem;
-    background: var(--gradient-primary);
+    background: var(--dark-green);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -909,7 +918,11 @@ h2::after {
 
 .service-icon i {
     font-size: 2.5rem;
-    color: white;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .service-item h3 {
@@ -932,12 +945,13 @@ h2::after {
 }
 
 .service-features span {
-    background: var(--gradient-secondary);
-    color: white;
+    background: var(--dark-green);
+    color: var(--secondary-color);
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight:600;
+    font-style: italic;
 }
 
 .gallery {
@@ -956,7 +970,7 @@ h2::after {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(212, 168, 122, 0.12), 0 2px 8px rgba(24,20,28,0.10);
-    border: 2px solid #D4A87A;
+    border: 2px solid var(--dark-green);
     background: rgba(255,255,255,0.08);
     position: relative;
     transition: box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
@@ -1647,8 +1661,8 @@ h2::after {
     /* Copy of .facility-btn with tweaks */
     display: inline-block;
     padding: 0.5rem 2rem;
-    background: var(--gradient-primary);
-    color: white;
+    background: var(--dark-green);
+    color: var(--secondary-hover);
     text-decoration: none;
     border-radius: 18px;
     transition: var(--transition);
@@ -1724,20 +1738,21 @@ h2::after {
 .submit-btn {
     width: 100%;
     padding: 1.2rem;
-    background: var(--gradient-primary);
-    color: white;
+    background: var(--dark-green);
+    color: var(--secondary-color);
     border: none;
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    color: #111;
+    background: var(--accent-color);
+    color: var(--dark-green);
 }
 
 .contact-form {
@@ -1772,26 +1787,9 @@ h2::after {
     resize: vertical;
 }
 
-.submit-btn {
-    width: 100%;
-    padding: 1rem;
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.submit-btn:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-}
-
 /* Footer */
 footer {
-    background: var(--primary-color);
+    background: var(--dark-green);
     color: white;
     padding: 4rem 0 2rem;
 }
@@ -1883,7 +1881,7 @@ footer {
 }
 
 .footer {
-    background: var(--primary-color);
+    background: var(--dark-green);
     color: white;
     padding: 6rem 0 4rem;
 }
