@@ -1,6 +1,8 @@
 :root {
     --primary-color: #1a1a1a;
     --dark-green: #001e02;
+    --light-green: #17361c;
+    --btn-green-color: #034512;
     --secondary-color: #e8b445;
     --accent-color: #e8b445;
     --text-color: #333;
@@ -447,11 +449,12 @@ h2::after {
     width: 80px;
     height: 80px;
     margin: 0 auto 2rem;
-    background: var(--dark-green);
+    background: var(--light-green);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.75;
 }
 
 .feature-icon i {
@@ -459,8 +462,9 @@ h2::after {
     background: var(--gradient-secondary);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    /* -webkit-text-fill-color: transparent;
+    color: transparent; */
+    opacity: 1;
 }
 
 .feature-card h3 {
@@ -671,11 +675,13 @@ h2::after {
 .facility-btn {
     display: inline-block;
     padding: 0.5rem 2rem;
-    background: var(--dark-green);
-    color: var(--secondary-hover);
+    background: var(--btn-green-color);
+    color: var(--secondary-color);
     text-decoration: none;
     border-radius: 25px;
     transition: var(--transition);
+    font-weight: bold;
+
 }
 
 .facility-btn:hover {
@@ -909,11 +915,12 @@ h2::after {
     width: 100px;
     height: 100px;
     margin: 0 auto 2rem;
-    background: var(--dark-green);
+    background: var(--light-green);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.75;
 }
 
 .service-icon i {
@@ -923,6 +930,7 @@ h2::after {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    opacity: 1; /*setting opacity to 100%*/
 }
 
 .service-item h3 {
@@ -942,16 +950,19 @@ h2::after {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    opacity: 0.75; /*setting opacity to 65%*/
+    
 }
 
 .service-features span {
-    background: var(--dark-green);
+    background: var(--light-green);
     color: var(--secondary-color);
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight:600;
     font-style: italic;
+    opacity: 1; /*setting opacity to 65%*/
 }
 
 .gallery {
@@ -1661,8 +1672,8 @@ h2::after {
     /* Copy of .facility-btn with tweaks */
     display: inline-block;
     padding: 0.5rem 2rem;
-    background: var(--dark-green);
-    color: var(--secondary-hover);
+    background: var(--btn-green-color);
+    color: var(--secondary-color);
     text-decoration: none;
     border-radius: 18px;
     transition: var(--transition);
@@ -1738,7 +1749,7 @@ h2::after {
 .submit-btn {
     width: 100%;
     padding: 1.2rem;
-    background: var(--dark-green);
+    background: var(--btn-green-color);
     color: var(--secondary-color);
     border: none;
     border-radius: 10px;
@@ -2361,6 +2372,7 @@ footer {
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    opacity: 0.75;
 }
 
 .feature-card:hover .feature-icon {
